@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Lables</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Image Name</th>
+                <th>Labels</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image_name, labels in items.items() %}
+            <tr>
+                <td>{{ image_name }}</td>
+                <td>{{ labels|join(", ") }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
