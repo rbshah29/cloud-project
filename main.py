@@ -9,10 +9,11 @@ S3_BUCKET = 'check-file-lambda'
 aws_access_key_id='ASIA3GA4UEJCNYB2TZWE'
 aws_secret_access_key='A4Cqpa9HzOQZyWp4dhmxF65LxOi++8eDyItmKkYC'
 aws_session_token='FwoGZXIvYXdzEJT//////////wEaDNqNBMemGZ5bz4P7iiLAAff9AUFcktze++coyqC2kYJctMRabueYr9LcF0kHo+ztEmeVr1l58JjGVKfU4zrVEW138hJgreoExKdjPedNyynpQ8hZ9H/Aex9JLIS9giaTaMww/Pi0KTgIc91OdAm++Pp3dM0Q6KL+sBApPOmPIak09ERgsK801PGNwJcG8/UlsHrmvhCMZT+dKCreBntiaAqaEVcdTsH1Ph63W5LW5IrtfzIYRpVTrNR8XxdSj+uApaB3X/OGnnvmltiPPgicASjO3cKlBjItQtPu2fWmzMXf/f9faaFrGL93T6iIxGqzcVY6VYAunGK/0ehvSvakPV/8cy1G'
+region_name="us-east-1"
 
-s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,aws_session_token=aws_session_token)
+s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,aws_session_token=aws_session_token,region_name=region_name)
 
-dynamodb = boto3.client('dynamodb', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,aws_session_token=aws_session_token)
+dynamodb = boto3.client('dynamodb', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,aws_session_token=aws_session_token,region_name=region_name)
 
 @app.route('/')
 def index():
