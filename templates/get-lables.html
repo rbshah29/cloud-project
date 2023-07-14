@@ -18,15 +18,17 @@
     <table>
         <thead>
             <tr>
+                <th>Image</th>
                 <th>Image Name</th>
                 <th>Labels</th>
             </tr>
         </thead>
         <tbody>
-            {% for image_name, labels in items.items() %}
+            {% for image_name, data in items.items() %}
             <tr>
+                <td><img src="{{ data['url'] }}" alt="{{ image_name }}" width="100" height="100"></td>
                 <td>{{ image_name }}</td>
-                <td>{{ labels|join(", ") }}</td>
+                <td>{{ data['labels']|join(", ") }}</td>
             </tr>
             {% endfor %}
         </tbody>
