@@ -6,9 +6,9 @@ import os
 app = Flask(__name__)
 
 S3_BUCKET = 'check-file-lambda'
-aws_access_key_id='ASIA3GA4UEJCN6LSAV7K'
-aws_secret_access_key='Zb3Z8F4VEo/UZSO2Q5xmvZUrQCkt+83cIGwfb9wE'
-aws_session_token='FwoGZXIvYXdzEKL//////////wEaDLvmqIOu+D99f5EYoyLAAXlS7IddAjyX9l9TD2XTqcOMplZoVQD+c8fLd4iCOFYbxcrtfs7I4+A6gH8MQc1v3Gxhp20yFeoFwUzgJEhjnGbrQP3MkfnWQz1pkwtl3+FqkxnyYCls1cskuUTrBVIf+NqfeW0hRm/Q10Q8HHmhm/8bzSm5vgknIDxUXKRiggktKU52B222T3WlihZH5cx2lrdbmxFtykGAD5NVsI6yzZxu3ByoTs2AhAomh06lKEtkfGLJh00jEJpCm/hkPNPuxiiv+cWlBjItgqx6/NNV2idlWJdbPy1by01RRGJMdz1JIBAJ+0D9ldvXxJaCepz5X1yz6kuz'
+aws_access_key_id='ASIA3GA4UEJCCCLURMGE'
+aws_secret_access_key='nuRFXlcsP9qyKXAaNf3YqEoc+McXQpcI5altlWLD'
+aws_session_token='FwoGZXIvYXdzENP//////////wEaDMhumO0YtfPQmunNhiLAARqJak7QuWDp5vTVU5UUERY04hvfG8dBa+I16dx0uFRdkQS6vrMoYBD3hWfKgoxd6hpw5y0tMQBlTlI9bTl5/22OOj1R2Z6bzIYZmiJzUKZEWbdl9amzheqF0Wl4mcAzZQsPyPOyTiIIi+DSLeKVlD4mOWb0BcEtiRmG9xQ3xMEyxFBYfQCKrN8BeJ+pQUk4wyj0Wpo1c3Gf/PTgw93qvDOrQhO/OW7HJnN6GIWxde4vzt7wgw7vYnLz6NW6zGTRrCj609ClBjItCgmvL1mLZk26KkCm7DfR57nIPzYAPgQFos0tN8g9ZxjLJL8iRPql3eh3iShW'
 region_name="us-east-1"
 
 s3 = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,aws_session_token=aws_session_token,region_name=region_name)
