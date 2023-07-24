@@ -90,10 +90,10 @@ Resources:
           sudo apt-get install -y
           sudo apt-get install -y git
           sudo apt-get install -y python3-pip
-          sudo pip3 install -r requirements.txt
           cd /home/ubuntu/
           git clone https://github.com/rbshah29/cloud-project.git
           cd cloud-project
+          sudo pip3 install -r requirements.txt
           python3 main.py
       SecurityGroupIds:
         - !Ref MySecurityGroup

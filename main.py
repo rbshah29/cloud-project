@@ -5,19 +5,23 @@ import os
 
 app = Flask(__name__)
 
-S3_BUCKET = 'check-file-lambda'
+S3_BUCKET = 'rutwik-b00934537-images'
 region_name="us-east-1"
 
 s3 = boto3.client('s3',region_name=region_name)
 
 dynamodb = boto3.client('dynamodb',region_name=region_name)
-
+print("-------------------> Local without finction")
 @app.route('/')
 def index():
+    print("-------------------> inside / function index")
+
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    print("-------------------> inside /upload function upload")
+
     file = request.files['file']
 
     filename = file.filename
@@ -39,7 +43,10 @@ def create_presigned_url(bucket_name, object_name, expiration=3600):
     return response
 
 @app.route('/get-lables', methods=['GET'])
+
 def get_data():
+    print("-------------------> inside /get-lables function get_data")
+
     response = dynamodb.scan(TableName='LabelsTable')
     items = response.get('Items', [])
 
@@ -52,6 +59,8 @@ def get_data():
         formatted_items[image_name] = {'labels': labels, 'url': image_url}
 
     return render_template('get-lables.html', items=formatted_items)
+
+print("=======================outside")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000)
