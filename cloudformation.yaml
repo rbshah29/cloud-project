@@ -87,14 +87,14 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
           sudo apt-get update
-          sudo apt-get install -y nodejs npm
+          sudo apt-get install -y
           sudo apt-get install -y git
+          sudo apt-get install -y python3-pip
+          sudo pip3 install -r requirements.txt
           cd /home/ubuntu/
-          git clone https://github.com/manavbhikadiya/cloud_term_project_client.git
-          cd cloud_term_project_client
-          sudo npm install
-          echo 'REACT_APP_IMAGE_RECOGNITION_URL="https://${MyApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod"' > .env
-          sudo npm start
+          git clone https://github.com/rbshah29/cloud-project.git
+          cd cloud-project
+          python3 main.py
       SecurityGroupIds:
         - !Ref MySecurityGroup
 
@@ -110,4 +110,4 @@ Resources:
         - IpProtocol: tcp
           FromPort: 8000
           ToPort: 8000
-          CidrIp: 0.0.0.0/0
+          CidrIp: 0.0.0.0/0
