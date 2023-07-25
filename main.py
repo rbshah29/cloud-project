@@ -2,14 +2,10 @@ from flask import Flask, render_template, request, jsonify
 import boto3
 import botocore
 import os
+from credentials import S3_BUCKET, region_name, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN
+
 
 app = Flask(__name__)
-
-S3_BUCKET = 'rutwik-b00934537-images'
-region_name="us-east-1"
-AWS_ACCESS_KEY_ID = 'ASIA3GA4UEJCPKRSAPW3'
-AWS_SECRET_ACCESS_KEY = 'cS3nB6SN7lsrH2BjquqvQ6LeRNW43vBM9M8vJh9t'
-AWS_SESSION_TOKEN = 'FwoGZXIvYXdzEJj//////////wEaDPFvAYjebtwQ2pG2/SLAAQPjUuGFQ4BVOAzMKMEK25Pa0FNBNzpsm/yTQFdOIQS8ECIAqT9ZcDpQw0822+WTWleO/07NV/FLNYNvDTP2V9W8BGpzoJp3b1Jj1Wl+CWxCoUp1mD/7hG1tdgBeqPSe9I0ePPsXJ6hGPiMxFRov76lzCzJXb8xC0Eh8K9rqdmZ7AetjjEfP4m757lLrUbOAapPRdvSTQgXDChHV7pgxytA+1ZQMG4qqkjsTms+B8mrz/KFV3z+lZE+V7Q9MoF1moiib6/ulBjItoeMMtZP96uwwMGHuPUzqB1aeKjq4ywqHCS8B8nSQBw2CmjFrDyaxBfhgA2FL'
 
 
 s3 = boto3.client('s3',aws_access_key_id=AWS_ACCESS_KEY_ID,

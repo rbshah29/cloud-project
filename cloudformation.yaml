@@ -22,7 +22,7 @@ Resources:
               S3Key:
                 Rules:
                   - Name: suffix
-                    Value: jpeg
+                    Value: png
             Function: !GetAtt [ ExampleLambdaFunction, Arn]
 
   ExampleInvokePermission:
