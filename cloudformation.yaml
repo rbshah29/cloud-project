@@ -145,7 +145,7 @@ Resources:
           sudo apt-get install -y python3-pip
           cd /home/ubuntu/
           git clone https://github.com/rbshah29/cloud-project.git
-          echo 'api_gateway="https://${MyApi}.execute-api.${AWS::Region}.amazonaws.com"' > .env
+          echo 'api_gateway="https://<RestApiId>.execute-api.<AWS Region>.amazonaws.com/"' > api.pygit 
           cd cloud-project
           sudo pip3 install -r requirements.txt
           python3 main.py
