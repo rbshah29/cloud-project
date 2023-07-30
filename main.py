@@ -50,7 +50,7 @@ def upload():
 
     try:
         s3.upload_fileobj(file, S3_BUCKET, s3_filename)
-        return render_template('upload.html', message='Upload successful!')
+        return render_template('upload.html', message='Upload successful!', link=link)
     except botocore.exceptions.ClientError as e:
         return render_template('error.html', message=f'Upload failed: {e.response["Error"]["Message"]}')
 
