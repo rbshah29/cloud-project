@@ -3,7 +3,7 @@ import boto3
 import botocore
 import os
 from credentials import S3_BUCKET, region_name, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN
-
+from api import api_gateway
 
 app = Flask(__name__)
 
@@ -23,6 +23,21 @@ def index():
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
+# def upload():
+#     print("-------------------> inside /upload function upload")
+
+#     file = request.files['file']
+
+#     filename = file.filename
+#     file_extension = os.path.splitext(filename)[1]
+#     s3_filename = f'{filename}'
+
+#     try:
+#         s3.upload_fileobj(file, S3_BUCKET, s3_filename)
+
+#         return 'Upload successful!'
+#     except botocore.exceptions.ClientError as e:
+#         return f'Upload failed: {e.response["Error"]["Message"]}'
 def upload():
     print("-------------------> inside /upload function upload")
 
@@ -31,13 +46,13 @@ def upload():
     filename = file.filename
     file_extension = os.path.splitext(filename)[1]
     s3_filename = f'{filename}'
+    link = api_gateway
 
     try:
         s3.upload_fileobj(file, S3_BUCKET, s3_filename)
-
-        return 'Upload successful!'
+        return render_template('upload.html', message='Upload successful!')
     except botocore.exceptions.ClientError as e:
-        return f'Upload failed: {e.response["Error"]["Message"]}'
+        return render_template('error.html', message=f'Upload failed: {e.response["Error"]["Message"]}')
 
 def create_presigned_url(bucket_name, object_name, expiration=3600):
     try:
